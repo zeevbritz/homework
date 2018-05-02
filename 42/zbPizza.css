@@ -1,0 +1,98 @@
+    body {
+        background-image: url("images/pizza_slice_big.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;      
+    }
+    h1 {
+        text-align: center;
+        color: red;
+        font-size: 5rem;
+        opacity: 0.9;
+    }
+    .zb .side-bar{
+        text-align: center;
+        color: white;
+        font-family: cursive;
+        font-size: 2rem;
+        margin-left: 2rem;
+        border: .3rem solid silver;
+        background-color: black;
+        width: 10rem;
+        opacity: 0.7;
+        box-sizing: content-box;
+        display: inline-block;
+        padding: 1rem;       
+    }
+    .side-bar .name{
+        color: red;
+        font-size: 3rem;
+        transform: rotate(345deg);
+        margin-top: 0%;
+    }
+    .side-bar a{
+        text-decoration: none;
+        color: white;
+    }
+    .link a{
+        display: inline-block;
+    }
+    #special a {
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        color: white;
+        font-family: cursive;
+        font-size: 3rem;        
+        margin-left: 2rem;
+        border: .3rem solid silver;
+        background-color: black;
+        width: 18.75rem;
+        height: 15.63rem;
+        opacity: 0.7;
+        box-sizing: border-box;
+        transform: translate(43.75rem, -3rem) rotate(15deg);
+    }
+    .pizza, .fish, .sides{
+        color: white;
+        font-family: cursive;
+        margin-left: 2rem;
+        border: .3rem solid silver;
+        background-color: black;
+        width: 18.75rem;
+        opacity: 0.7;
+        box-sizing: content-box;
+        display: inline-block;
+        padding: 1rem;
+    }
+    .menu-section-title{
+        margin-top: 0%;
+        text-align: center;
+        color: red;
+        font-family: cursive;
+        font-size: 3rem;  
+    }
+    .menu-item-name{
+        font-family: cursive;
+        font-weight: bold;
+        border-bottom: 2px dotted rgb(213, 213, 213);
+      }
+      .menu-item-name a{
+        text-decoration: none;
+        color: white;
+      }
+      /* .menu-item-name a:link {
+        color: red;
+    } */    
+    .menu-item-name a:hover {
+       text-decoration: underline; 
+       color: red;
+    }             
+    .menu-item-price{
+        float: right;
+        font-weight: bold;
+        font-family: arial;
+        margin-top: -22px;
+      }
+
