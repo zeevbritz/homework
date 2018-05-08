@@ -1,0 +1,23 @@
+html {
+    background-color: black;
+}
+
+body {
+    background-color: white;
+    box-sizing: border-box;
+    max-width: 75em;
+    margin: auto;
+    padding: .5rem;    
+}
+
+div p {
+    text-align: center;
+    border: .2rem solid black;
+    width: 20em;
+    height: 10em;
+    background-color: yellow;
+    display: inline-block;
+    padding: 4.25em 0;
+    box-sizing: border-box;
+    margin: 2rem;
+}
