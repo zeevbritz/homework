@@ -1,0 +1,139 @@
+html{
+    background-color: black;
+    height: 45rem;
+    /* height: 100%;   */
+}
+
+body {
+    background-image: url("../images/pizza_slice_big.jpg");
+    color: red;
+    max-width: 75em;
+    margin: 0 auto;
+    padding: 1em;
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 45em;
+    /* background-size: cover; */
+    /* height: 100%;   */
+}
+
+/* header.home {
+    overflow: auto;
+} */
+
+h1 {
+    text-align: center;
+    font-size: 6em;
+}
+
+nav a{
+    color: white;
+    font-family: cursive;
+    font-size: 1.1em;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: .1rem solid rgba(192,192,192,.7);
+}
+
+.logo{
+    color: red;
+    font-size: 3em;
+    font-family: initial;
+    /* transform: rotate(-15deg); */
+}
+
+div.side-bar {
+    float: left;
+    color: white;
+    font-family: cursive;
+    border: .3rem solid silver;
+    background-color: black;
+    width: 12rem;
+    opacity: 0.7;
+    box-sizing: border-box;
+    /* display: inline-block; */
+    /* margin-top: 4rem; */
+}
+
+div.info {
+    text-align: center;
+    padding-top: 2rem 0;
+}
+
+.info a {
+    margin: 0rem .4rem;
+}
+.info p {
+    padding: 2rem 0;
+}
+
+#upToTop{
+    position: fixed;
+    transform: translate(59em, 0em);
+}
+
+.video {
+    text-align: center;
+    /* max-width: 30rem;
+    margin: 0 auto; */
+}
+
+video {
+    border: .3rem solid silver;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px 3px rgba(255,0,0,.7);
+    background-color: black;
+    max-width: 30rem;
+    opacity: 0.7;
+    box-sizing: border-box;
+    /* display: inline-block; */
+    padding: 1rem;
+}
+
+audio {
+    position: relative;
+    left: -192px;
+    bottom: -69px;
+}
+
+@media screen and (max-width: 600px) {
+    video {
+        width: 100%;
+        margin: 10px 0;
+    }
+    audio {
+        display: none;
+    }
+    nav a{
+        display: initial;
+    }
+    nav a:not(.logo){
+        display: block;
+    }
+    
+    .logo{
+        float: left;
+        font-family: initial;
+        padding: 1.5rem 0;
+        width: 50%;
+        border: .1rem solid rgba(192,192,192,.7);
+        background-color: black;
+        background-color: black;
+        border-bottom: none;
+    }
+    
+    div.side-bar {
+        float: none;
+        width: auto;
+    }
+    
+     div.info {
+        text-align: center;
+        padding-top: 0;
+    }
+    .info p {
+        padding: 0;
+    } 
+}
