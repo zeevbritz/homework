@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 200px;
+            grid-gap: 20px;
+        }
+
+        /* SMARTPHONES PORTRAIT */
+
+        @media only screen and (min-width: 300px) {
+            div {
+                background-color: orangered;
+
+            }
+        }
+
+        /* TABLETS PORTRAIT */
+
+        @media only screen and (min-width: 768px) {
+            body {
+                grid-template-columns: 1fr 1fr;
+            }
+            div {
+                background-color: teal;
+            }
+            div:nth-child(1) {
+                grid-column-end: span 2;
+            }
+        }
+
+
+
+
+        /* TABLET LANDSCAPE / DESKTOP */
+
+        @media only screen and (min-width: 1024px) {
+            body {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            div {
+                background-color: brown;
+            }
+
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>
