@@ -1,0 +1,188 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: " . container .";
+    font-family: 'helvetica', arial, sans-serif;
+}
+nav {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: " . nav . ";
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    align-items: center;
+    /* text-size-adjust: auto; */
+}
+a {
+    text-decoration: none;
+    color: white;    
+    margin-right: 5px;
+    
+}
+a:hover {
+    text-decoration: underline;
+    color: red;
+}
+nav ul {
+    grid-area: nav;
+}
+ul {
+    padding-left: 0px;
+}
+li {
+    display: inline-block;
+}
+.container {
+    grid-area: container;
+}
+header {
+    display: grid;
+    margin-top: 50px;
+    background-color: lightgray;
+    text-align: center;
+    align-content: center;
+    height: 175px;
+}
+header h2 {
+    margin-top: 0px;
+}
+.italic {
+    font-style: italic;
+}
+.upper {
+    text-transform: uppercase;
+}
+.justify-text {
+    text-align: justify;
+}
+.center-text {
+    text-align: center;
+}
+#products, #sign-me-up, #financials, #about-us {
+    height: 50px;
+}
+img, video {
+    width: 100%;
+}
+.computer, .choirs, .candy {
+    margin-top: 50px;
+}
+.sign-me-up {
+    background-color: lightgray;
+    text-align: center;
+    border-radius: 7px;
+    padding: 20px 0px 20px;
+    margin-top: 19.920px;
+}
+form div {
+    display: block;
+    margin-bottom: 7px;
+}
+input {
+    border-radius: 7px;
+    box-shadow: 2px 2px 0px 2px #888888;
+    outline: none;
+}
+input[type="submit"] {
+    cursor: pointer;
+}
+.financials {
+    display: grid;
+}
+.financials div{
+    display: flex;
+    justify-content: center;
+}
+/* table {
+    justify-self: center; */
+    /* font-size: 1.17vw;
+    max-width: 100%;
+    overflow: hidden;
+} */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 7px;
+}
+caption {
+    padding: 25px 0px 25px;
+    font-weight: bold;
+}
+td:first-child {
+    font-weight: bold;
+}
+td {
+    text-align: right;
+}
+td:last-child {
+    color: red;
+}
+tr:nth-child(even) {
+    background-color: lightgrey;
+}
+tr:hover :not(th){
+    background-color: lightblue;
+}
+.about-us{
+    margin-bottom: 100px;
+}
+footer{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: " . footer . ";
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    align-items: center;
+}
+footer p{
+    grid-area: footer;
+    color: white;
+}
+@media screen and (min-width: 1000px){
+    .products{
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr 1px 1fr;
+        grid-template-areas: "products-header products-header products-header products-header products-header";
+        grid-column-gap: 40px;
+    }
+    .products-header{
+        grid-area: products-header;
+    }
+    .computer, .choirs, .candy {
+        margin-top: 20px;
+        
+    }
+    .vl {
+        border-left: 1px solid #888888;
+        height: 100%;
+    }
+    form div {
+        display: initial;
+        margin-right: 7px;
+    }
+}
+@media  screen and (max-width: 757px){
+    .financials div{
+        display: flex;
+        overflow-x: auto;
+        justify-content: initial;
+    }
+    .financials div::-webkit-scrollbar {
+        -webkit-appearance: none;
+        /* width: 7px; */
+    }
+    .financials div::-webkit-scrollbar-thumb {
+        /* border-radius: 4px; */
+        background-color: lightgrey;
+        /* -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5); */
+    }
+}
