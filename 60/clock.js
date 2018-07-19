@@ -53,7 +53,7 @@ pcs.clock = (function () {
 
     function getClock() {
         setInterval(getTime, 1000);
-
+        getTime();
     }
 
     return {
@@ -64,7 +64,7 @@ pcs.clock = (function () {
 
 pcs.newClock = (function () {
     'use strict';
-
+    let intervalId;
     let clockDiv = document.createElement('div');
     let timeDiv = document.createElement('div');
     let alarmLabel = document.createElement('label');
@@ -89,7 +89,7 @@ pcs.newClock = (function () {
     alarmLabel.style.margin = '10px';
 
     alarm.addEventListener('input', function () {
-        // console.log(alarm.value);
+        console.log(alarm.value);
     });
 
 
@@ -137,16 +137,17 @@ pcs.newClock = (function () {
         }
 
         timeDiv.innerHTML = hr12(h) + ':' + doubleDigit(m) + ':' + doubleDigit(s) + ' ' + ampm(h);
-        // console.log(h + ':' + doubleDigit(m));
-        let intervalId;
+
         if (alarm.value === doubleDigit(h) + ':' + doubleDigit(m)) {
-            // setInterval(console.log(h + ':' + doubleDigit(m)), 1000);
-            // console.log(h + ':' + doubleDigit(m));
-            intervalId = setInterval(setColors, 500);
+            if (!intervalId) {
+                intervalId = setInterval(setColors, 500);
+            }
         } else {
             clearInterval(intervalId);
+            intervalId = null;
             clockDiv.style.backgroundColor = 'white';
         }
+
 
     }
     function random() {
@@ -162,6 +163,7 @@ pcs.newClock = (function () {
 
     function getClock() {
         setInterval(setTime, 1000);
+        setTime();
     }
 
     return {

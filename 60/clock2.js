@@ -51,10 +51,8 @@ pcs.clock2 = (function () {
         clockDiv.innerHTML = hr12(hours) + ':' + doubleDigit(minutes) + ':' + doubleDigit(seconds) + ' ' + ampm(hours);
     }
 
-    (function() {
         setInterval(getTime, 1000);
-
-    }());
+        getTime();
 
 }());
 
@@ -117,8 +115,7 @@ pcs.newClock2 = (function () {
 
     }
 
-    (function() {
         setInterval(setTime, 1000);
-    }());
+        setTime();
 
 }());
