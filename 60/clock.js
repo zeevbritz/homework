@@ -88,11 +88,9 @@ pcs.newClock = (function () {
     alarmLabel.style.fontSize = '.5em';
     alarmLabel.style.margin = '10px';
 
-    alarm.addEventListener('input', function () {
-        console.log(alarm.value);
-    });
-
-
+    // alarm.addEventListener('input', function () {
+    //     console.log(alarm.value);
+    // });
 
     let h = 0;
     let m = 0;
