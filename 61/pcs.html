@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="donald">Donald Trump</h1>
+    <h1 id="vladimir">Vladimir Putin</h1>
+    <script src="pcs.js"></script>
+
+    <script>
+        //const donald = pcs.tools.get('donald');
+        //pcs.tools.setCss(donald, 'color', 'red');
+        const donald = pcs('donald')
+            .css('color', 'red')
+            .css('fontSize', '46px')
+            .click(function (event) {
+                console.log('The Donald was clicked!', event);
+            });
+        console.log(donald.css('color'));
+
+        donald.dataArray('age', 71);
+        donald.dataArray('ocupation', 'potus');
+        donald.changeColor();
+        console.log(donald.dataArray('age'));
+        console.log(donald.dataArray('ocupation'));
+
+        donald.data('age', 71);
+        donald.data('ocupation', 'potus');
+        console.log(donald.data('age'));
+        console.log(donald.data('ocupation'));
+
+        const vladimir = pcs('vladimir');
+        vladimir.hide();
+
+        setTimeout(function () {
+            vladimir.show();
+        }, 2000);
+        vladimir.changeColor(2);
+    </script>
+</body>
+
+</html>
