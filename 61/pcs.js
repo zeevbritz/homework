@@ -23,10 +23,12 @@ var pcs = function (id) { // jshint ignore:line
             return this;
         },
         hide: function () {
-            setCss(elem, 'display', 'none');
+            // setCss(elem, 'display', 'none');
+            this.css('display', 'none');
         },
         show: function () {
-            setCss(elem, 'display', 'block');
+            // setCss(elem, 'display', 'block');
+            this.css('display', 'block');
         },
         click: function (callback) {
             elem.addEventListener('click', callback);
@@ -54,8 +56,7 @@ var pcs = function (id) { // jshint ignore:line
             let intervalId;
             let intervalId2;
             let elementColor = this.css('color');
-            // let elementColor = elem.css('color');
-
+            /* jshint -W040 */
             function random() {
                 return Math.floor(Math.random() * 266);
             }
@@ -64,26 +65,28 @@ var pcs = function (id) { // jshint ignore:line
                 function getRandomColor() {
                     return 'RGB(' + random() + ',' + random() + ',' + random() + ')';
                 }
-                setCss(elem, 'color', getRandomColor());
-                // this.css('color', getRandomColor());
+                // setCss(elem, 'color', getRandomColor());
+                this.css('color', getRandomColor());
             }
 
             function interval() {
                 if (counter++ < (time * 60)) {
                     if (!intervalId2) {
-                        setColors();
-                        intervalId2 = setInterval(setColors, 1000);
+                        // setColors();
+                        setColors.call(this);
+                        // intervalId2 = setInterval(setColors(), 1000);
+                        intervalId2 = setInterval(setColors.bind(this), 1000);
                     }
                 } else {
                     clearInterval(intervalId2);
                     clearInterval(intervalId);
                     setCss(elem, 'color', elementColor);
-                    // elem.css('color', elementColor);
-                    // this.css('color', elementColor);
+                    this.css('color', elementColor);
                 }
             }
 
-            intervalId = setInterval(interval, 1000);
+            // intervalId = setInterval(interval, 1000);
+            intervalId = setInterval(interval.bind(this), 1000);
         }
     };
 
