@@ -53,7 +53,6 @@ var pcs = function (id) { // jshint ignore:line
 
             let counter = 0;
             let intervalId;
-            let intervalId2;
             let elementColor = this.css('color');
             /* jshint -W040 */
             function random() {
@@ -69,15 +68,10 @@ var pcs = function (id) { // jshint ignore:line
             }
 
             function interval() {
-                if (counter++ < (time * 60)) {
-                    if (!intervalId2) {
-                        // setColors();
-                        setColors.call(this);
-                        // intervalId2 = setInterval(setColors(), 1000);
-                        intervalId2 = setInterval(setColors.bind(this), 1000);
-                    }
+                if (counter++ < (time * 240)) {
+                    // setColors();
+                    setColors.call(this);
                 } else {
-                    clearInterval(intervalId2);
                     clearInterval(intervalId);
                     setCss(elem, 'color', elementColor);
                     this.css('color', elementColor);
@@ -85,7 +79,7 @@ var pcs = function (id) { // jshint ignore:line
             }
 
             // intervalId = setInterval(interval, 1000);
-            intervalId = setInterval(interval.bind(this), 1000);
+            intervalId = setInterval(interval.bind(this), 250);
         }
     };
 
