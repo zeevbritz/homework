@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        #video {
+            text-align: center;
+        }
+        #video video {
+            max-width: 80%;
+        }
+        #allVideos div{
+            max-width: 33.3%;
+            padding: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+        }
+        #nowPlaying{
+            z-index: 1;
+            position: absolute;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>PCStube</h1>
+    <div id="video">
+        <video id="theVideo"></video>
+        <div id="title"></div>
+    </div>
+    <hr>
+    <a href="#theVideo"><div id="allVideos"></div></a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="pcstube.js"></script>
+</body>
+</html>
