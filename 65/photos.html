@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .search {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        #thephoto {
+            text-align: center;
+            padding: 30px;
+        }
+        #caption {
+            text-align: center;
+        }
+        img {
+            padding: 4px;
+        }
+        #showAll:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+    <title>photos</title>
+</head>
+
+<body>
+    <div class="search">
+        <button type="button" id="searchButton">&#x1f50d</button>
+        <input type="text" id="searchInput" placeholder="Photos, people, or groups">
+    </div>
+    <div class="search" id="showAll">view all images</div>
+    <div id="thephoto"></div>
+    <figcaption ><h3 id="caption"></h3></figcaption>
+    <div id="allPhotos"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="photos.js"></script>
+</body>
+
+</html>
