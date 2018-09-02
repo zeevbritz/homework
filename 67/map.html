@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-areas: " sidebar map ";
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sideBar {
+            width: 250px;
+            background-color: darkgray;
+            padding: 5px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-rows: 70px 1fr;
+            grid-template-areas: "controls"
+                                 " list";
+            grid-area: sidebar;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #controls {
+            grid-area: controls;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid lightgrey;
+            box-sizing: border-box;
+        }
+
+        /* h3 {
+            text-align: center;
+        } */
+
+        ul {
+            overflow-y: auto;
+            grid-area: list;
+            list-style-type: none;
+            padding: 0;
+            /* text-align: center; */
+            background-color: lightgrey;
+        }
+
+        ul img {
+            width: 200px;
+        }
+
+        ul div:first-child{
+            padding-top: 8px;
+        }
+        
+        #map {
+            height: 100%;
+            display: inline-block;
+            grid-area: map;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="sideBar">
+        <div id="controls">
+            <input id="searhInput" placeholder="Enter Location">
+            <button>Search</button>
+            <h3 id="searchTitle"></h3>
+        </div>
+        <ul></ul>
+    </div>
+    <div id="map"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcqa7U3tDmo6_5c8LPICA0RR7GgUcdMtc&callback=initMap&libraries=drawing"
+        async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcqa7U3tDmo6_5c8LPICA0RR7GgUcdMtc" async defer></script> -->
+    <script src="map.js"></script>
+</body>
+
+</html>
