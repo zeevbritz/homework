@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #theCanvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="controls">
+        <button id="button">Play Game</button>
+        <span>your score:<span id="score"></span></span>
+    </div>
+    <canvas id="theCanvas"></canvas>
+    <audio id="crunch" src="media/crunch.mp3" />
+    <audio id="crash" src="media/crash.mp3" />
+    <script src="snake.js"></script>
+</body>
+
+</html>
