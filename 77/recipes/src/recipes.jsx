@@ -49,7 +49,7 @@ class Recipes extends Component {
         } else {
             return (
                 <div>
-                    <button onClick={() => this.hideRecipe()}>Home</button>
+                    <button onClick={this.hideRecipe}>Home</button>
                     <Recipe recipe={this.currentRecipe} />
                 </div>
             );
