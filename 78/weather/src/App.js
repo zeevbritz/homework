@@ -12,7 +12,12 @@ class App extends Component {
   fetchWeather = () => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?APPID=47d15dd6522572a23f6ce80a58cdf231&zip=${this.state.zip}&units=imperial`)
       .then(response => {
-        return response.json()
+        if (response.status === 404) {
+          alert('404 (Not Found)')
+          window.location.reload(true);
+        } else {
+          return response.json()
+        }
       }).then(data => {
         this.setState({ currentZip: data })
       }
