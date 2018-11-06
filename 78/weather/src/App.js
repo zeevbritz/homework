@@ -6,7 +6,7 @@ import Weather from './weather';
 class App extends Component {
 
   state = {
-    // zip: ''
+    zip: ''
   }
 
   fetchWeather = event => {
