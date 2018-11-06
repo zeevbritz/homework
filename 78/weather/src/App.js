@@ -6,10 +6,11 @@ import Weather from './weather';
 class App extends Component {
 
   state = {
-    zip: ''
+    // zip: ''
   }
 
-  fetchWeather = () => {
+  fetchWeather = event => {
+    event.preventDefault();
     fetch(`http://api.openweathermap.org/data/2.5/weather?APPID=47d15dd6522572a23f6ce80a58cdf231&zip=${this.state.zip}&units=imperial`)
       .then(response => {
         if (response.status === 404) {
@@ -19,7 +20,7 @@ class App extends Component {
           return response.json()
         }
       }).then(data => {
-        this.setState({ currentZip: data })
+        this.setState({ weatherData: data })
       }
       )
   }
@@ -31,22 +32,16 @@ class App extends Component {
 
     this.setState({
       [name]: value,
-      currentZip: null
+      weatherData: null
     });
   }
-
-  handleSubmit = event => {
-    this.fetchWeather();
-    event.preventDefault();
-  };
-
 
   render() {
     return (
       <div className="App">
-        <Form zip={this.zip} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} fetchWeather={this.fetchWeather} />
+        <Form zip={this.state.zip} handleInputChange={this.handleInputChange} handleSubmit={this.fetchWeather} />
         <hr />
-        {this.state.currentZip ? <Weather zip={this.state.currentZip} /> : null}
+        {this.state.weatherData ? <Weather weatherData={this.state.weatherData} /> : null}
       </div>
     );
   }
