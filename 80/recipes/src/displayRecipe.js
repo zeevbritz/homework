@@ -7,8 +7,6 @@ class Recipe extends Component {
 
     render() {
         const recipe = RecipeArray.find(obj => obj.id === parseInt(this.props.match.params.recipeId));
-        console.log(typeof(parseInt(this.props.match.params.recipeId)));
-        console.log(typeof(this.props.match.params.recipeId));
         return (
             <div className='recipe'>
                 <h1 className='name'>{recipe.name}</h1>

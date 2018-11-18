@@ -7,10 +7,29 @@ class addRecipe extends Component {
         ingredientInput: []
     }
 
-    index = 1
+    ingredientId = 1;
 
     componentDidMount() {
         this.addIngredientInput();
+    }
+
+    addIngredientInput = () => {
+        this.setState(state => {
+            const ingredientInput = [...state.ingredientInput, { id: this.ingredientId++, ingredient: '' }];
+            return {
+                ingredientInput
+            }
+        })
+    }
+
+    displayIngredientInput = () => {
+        return this.state.ingredientInput.map(e =>
+            <div className= 'ingredient' key={e.id}>
+                <input name={'ingredient'} id={e.id}
+                    onChange={this.IngredientInputChange} value={e.ingredient} ></input>
+                <button type='button' onClick={() => { this.deleteInput(e.id) }}>Delete</button>
+            </div>
+        )
     }
 
     handleInputChange = event => {
@@ -23,20 +42,38 @@ class addRecipe extends Component {
         });
     }
 
-    addIngredients = () => {
-        const ingredients = []
-        for (let i = 1; i < this.state.ingredientInput.length + 1; i++) {
-            ingredients.push(this.state[`ingredient${i}`]);
-        }
-        return ingredients;
-    };
+    IngredientInputChange = e => {
+        const target = e.target;
+        const value = target.value;
+        const id = parseInt(target.id)
+
+        this.setState(state => {
+            let currIndex;
+            let ingredientInputs = [...state.ingredientInput];
+            const currObj = { ...ingredientInputs.find((obj, index) => { currIndex = index; return obj.id === id }) };
+            currObj.ingredient = value;
+            ingredientInputs[currIndex] = currObj;
+            return {
+                ingredientInput: ingredientInputs
+            }
+        })
+    }
+
+    deleteInput = id => {
+        this.setState(state => {
+            let ingredientInput = state.ingredientInput.filter(obj => obj.id !== id);
+            return {
+                ingredientInput
+            }
+        })
+    }
 
     handleSubmit = e => {
         e.preventDefault();
         RecipeArray.push({
             id: RecipeArray.length + 1,
             name: this.state.name,
-            ingredients: this.addIngredients(),
+            ingredients: this.addIngredientsForSubmission(),
             directions: this.state.directions
         })
         this.setState({
@@ -44,16 +81,11 @@ class addRecipe extends Component {
         });
     }
 
-    addIngredientInput = () => {
-        this.setState(state => {
-            const ingredientInput = [...state.ingredientInput,
-            <input key={this.index} name={`ingredient${this.index++}`} id='ingredient'
-                onChange={this.handleInputChange} value={this.ingredients1} ></input>];
-            return {
-                ingredientInput
-            };
-        });
-    }
+    addIngredientsForSubmission = () => {
+        const ingredients = []
+        this.state.ingredientInput.forEach(e => ingredients.push(e.ingredient));
+        return ingredients;
+    };
 
     addRecipeForm = () => {
         return (
@@ -61,8 +93,8 @@ class addRecipe extends Component {
                 <label htmlFor='name'>Recipe Name:</label>
                 <input name='name' id='name' onChange={this.handleInputChange} value={this.name} required></input>
                 <label htmlFor='ingredient'>ingredient:</label>
-                <button type='button' onClick={this.addIngredientInput}>add Ingredient</button>
-                {this.state.ingredientInput}
+                {this.displayIngredientInput()}
+                <button type='button' onClick={this.addIngredientInput}>add Ingredient</button>                
                 <label htmlFor='directions'>directions:</label >
                 <textarea name='directions' id='directions' onChange={this.handleInputChange} value={this.directions}
                     style={{ width: "200px", height: "100px" }} required></textarea>
