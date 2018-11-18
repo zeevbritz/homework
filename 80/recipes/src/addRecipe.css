@@ -1,0 +1,12 @@
+form {
+    text-align: left;
+    margin: 20px;
+}
+label, textarea, button, input {
+    display: block;
+    margin-bottom: 5px;
+}
+.ingredient input, button{
+    display: inline-block;
+    margin-right: 5px;
+}

@@ -1,0 +1,31 @@
+.recipe {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-areas: " name name "
+                        " ingredients directions " ;
+    border: 1px solid red;
+    max-width: 75%;
+    margin: 7px auto;
+    border-radius: 7px;
+    box-shadow: 2px 2px 0px 2px red;
+    outline: none;
+}
+
+.name {
+    grid-area: name;
+}
+
+.directions {
+    grid-area: directions;
+    text-align: left;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.recipe ul {
+    grid-area: ingredients;
+    margin-top: 0;
+    text-align: left;
+    /* display: inline-block;
+    float: left; */
+}
