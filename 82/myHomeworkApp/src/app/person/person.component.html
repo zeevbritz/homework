@@ -1,0 +1,8 @@
+<h2>{{person.firstName}} {{person.lastName}}</h2>
+<!-- <p>{{person.street}}</p>
+<p>{{person.city}}, {{person.state | uppercase}} {{person.zip}}</p> -->
+
+<!-- <p>{{person.address.street}}</p>
+<p>{{person.address.city}}, {{person.address.state | uppercase}} {{person.address.zip}}</p> -->
+
+<app-address [address]=person.address></app-address>
