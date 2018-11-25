@@ -19,7 +19,7 @@ export class AppComponent {
   onSelect(index: number): void {
     this.showCategories = false;
     if (index >= 0) {
-      // this.catagory = this.catagories.find(catagory=> catagory.name === name).items
+      // this.category = this.categories.find(category=> category.name === name).items
       this.category = this.categories[index];
     } else {
       this.category = null;
