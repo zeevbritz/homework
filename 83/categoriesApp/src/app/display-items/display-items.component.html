@@ -1,0 +1,13 @@
+<h2 *ngIf="!selectedCategory?.items.length && selectedCategory">No items in category</h2>
+<ul *ngIf="selectedCategory">
+  <li *ngFor="let item of selectedCategory.items;let i = index;"><span id='name'>{{item.name}}</span>
+    <span id='price'>{{item.price | currency}}</span>
+    <button id='button' type="button" (click)="onDelete(i)">Delete</button></li>
+</ul>
+<div id='addItem' *ngIf="selectedCategory"> add item
+<form (submit)="onAdd(name.value, price.value);name.value='';price.value='';$event.preventDefault();">
+  <input #name placeholder="product name" required/>
+  <input type="number" #price placeholder="product price" step= '.01' required/>
+  <button>add</button>
+</form>
+</div>

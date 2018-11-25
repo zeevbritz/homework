@@ -1,0 +1,11 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <h1 style="text-align:center">
+    {{ title }}
+  </h1>
+<select id="category-select" (change)="onSelect($event.target.value)">
+    <option value= {{-1}}>--Please choose a catagory--</option>
+    <option value={{i}} *ngFor="let category of catagories;let i = index;">{{category.name}}</option>
+</select>
+<hr>
+<app-display-items [selectedCategory]="catagory"></app-display-items>
+
