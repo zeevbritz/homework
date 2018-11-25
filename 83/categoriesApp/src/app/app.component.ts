@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { categories } from './shared/mock-categories';
-import { Catagory } from './shared/catagory';
+import { Category } from './shared/category';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,24 @@ import { Catagory } from './shared/catagory';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  catagories = categories;
+  categories = categories;
 
-  catagory: Catagory;
+  category: Category;
+
+  showCategories = false;
 
   title = 'Best Kippah';
 
   onSelect(index: number): void {
+    this.showCategories = false;
     if (index >= 0) {
       // this.catagory = this.catagories.find(catagory=> catagory.name === name).items
-      this.catagory = this.catagories[index];
+      this.category = this.categories[index];
     } else {
-      this.catagory = null;
+      this.category = null;
     }
+  }
+  onClick(){
+    this.showCategories =!this.showCategories;
   }
 }

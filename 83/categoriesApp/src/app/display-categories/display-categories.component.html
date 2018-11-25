@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let category of categories;let i = index;">
+    <span id='name'>{{category.name | titlecase}}</span>
+    <button id='button' type="button" (click)="onDelete(i)">Delete</button>
+  </li>
+</ul>
+<div id='addItem'> add category
+  <form (submit)="onAdd(name.value);name.value='';$event.preventDefault();">
+    <input #name placeholder="category name" required />
+    <button>add</button>
+  </form>
+</div>

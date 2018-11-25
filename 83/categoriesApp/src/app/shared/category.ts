@@ -1,6 +1,6 @@
 import { Item } from "./item";
 
-export interface Catagory {
+export interface Category {
     name: string;
     items?: Item[];
 }

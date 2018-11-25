@@ -1,0 +1,16 @@
+li{
+    list-style-type: none;
+    border-bottom: black 1px dotted;
+    margin-bottom: 5px;
+    width: 300px;
+}
+ul{
+    padding: 0;
+}
+#name{
+    display: inline-block;
+    width: 240px;
+}
+#button{
+    width: 60px;
+}

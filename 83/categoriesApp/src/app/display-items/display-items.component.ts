@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Catagory } from '../shared/catagory';
+import { Category } from '../shared/category';
 
 @Component({
   selector: 'app-display-items',
@@ -8,7 +8,7 @@ import { Catagory } from '../shared/catagory';
 })
 export class DisplayItemsComponent implements OnInit {
   @Input()
-  selectedCategory: Catagory;
+  selectedCategory: Category;
 
   onDelete(index: number): void {
     if(window.confirm('Are you sure you want to Delete this item?')){

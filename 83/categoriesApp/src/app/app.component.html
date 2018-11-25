@@ -3,9 +3,11 @@
     {{ title }}
   </h1>
 <select id="category-select" (change)="onSelect($event.target.value)">
-    <option value= {{-1}}>--Please choose a catagory--</option>
-    <option value={{i}} *ngFor="let category of catagories;let i = index;">{{category.name}}</option>
+    <option value= {{-1}}>--Please choose a category--</option>
+    <option value={{i}} *ngFor="let category of categories;let i = index;">{{category.name}}</option>
 </select>
+<button (click)="onClick()">add/remove Category</button>
 <hr>
-<app-display-items [selectedCategory]="catagory"></app-display-items>
+<app-display-items *ngIf="!showCategories" [selectedCategory]="category"></app-display-items>
+<app-display-categories *ngIf="showCategories"></app-display-categories>
 

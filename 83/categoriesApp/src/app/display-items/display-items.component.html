@@ -1,6 +1,6 @@
 <h2 *ngIf="!selectedCategory?.items.length && selectedCategory">No items in category</h2>
 <ul *ngIf="selectedCategory">
-  <li *ngFor="let item of selectedCategory.items;let i = index;"><span id='name'>{{item.name}}</span>
+  <li *ngFor="let item of selectedCategory.items;let i = index;"><span id='name'>{{item.name | titlecase}}</span>
     <span id='price'>{{item.price | currency}}</span>
     <button id='button' type="button" (click)="onDelete(i)">Delete</button></li>
 </ul>
