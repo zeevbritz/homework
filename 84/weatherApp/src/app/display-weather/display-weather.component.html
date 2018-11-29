@@ -1,0 +1,15 @@
+<form (submit)="getWeather(zipInput.value);$event.preventDefault();">
+  <label for='zip'>Enter a US zip code: </label>
+    <input #zipInput name="zip" id="zip" pattern="\d*" minLength="5" maxLength="5" />
+    <button>submit!</button>
+</form>
+<div *ngIf="weather">
+  <h2 >
+    The weather in {{weather.name}} is
+  </h2>
+  <img src="{{ weather.img }}" alt="weather icon" />
+  <h2>
+    {{weather.temp}}&#8457; and {{weather.description}}
+  </h2>
+</div>
+            
