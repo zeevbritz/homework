@@ -15,7 +15,7 @@ app.use('/about', (req, res) => {
 
 app.use(require('./queryParser'));
 
-app.use(require('./authorization')('/admin'));
+app.use('/admin',require('./authorization'));
 
 app.use('/admin', (req, res) => {
     res.end('<h2>Hello Admin</h2>');
