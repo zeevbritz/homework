@@ -1,0 +1,11 @@
+<form id="contactAddress" action="api/contacts" method="POST">
+    <fieldset>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="enter your Name" required>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="enter your Phone #" required>
+        <label for="name">Email:</label>
+        <input type="email" id="email" name="email" placeholder="enter your Email" required>
+        <button id="submit">Submit</button>
+    </fieldset>
+</form>
