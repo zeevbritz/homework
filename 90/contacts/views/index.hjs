@@ -14,9 +14,9 @@
   {{/myArray}}
   {{> content}}
   <script>
-    document.getElementById('contactAddress').addEventListener('submit', () => {
-      document.getElementById('contactAddress').reset();
-    })
+    document.getElementById('contactAddress').addEventListener('submit', setTimeout(() => {      
+        document.getElementById('contactAddress').reset();
+      }));
   </script>
 </body>
 
