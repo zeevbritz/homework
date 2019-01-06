@@ -3,14 +3,17 @@ var router = express.Router();
 var request = require('request');
 
 /* GET home page. */
+// eslint-disable-next-line no-unused-vars
 router.get('/', function (req, res, next) {
   res.render('layout', { title: 'Express', partials: { content: 'index' } });
 });
 
+// eslint-disable-next-line no-unused-vars
 router.get('/stocks', function (req, res, next) {
   res.render('layout', { title: 'Express', partials: { content: 'search' } });
 });
 
+// eslint-disable-next-line no-unused-vars
 router.post('/stocks', function (req, res, next) {
   request(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${req.body.ticker}&apikey=Y2WR3EK2QUQB4YBX`,
     { json: true }, (err, res2, body) => {
@@ -21,6 +24,7 @@ router.post('/stocks', function (req, res, next) {
     });
 });
 
+// eslint-disable-next-line no-unused-vars
 router.get('/stocks/:symbol/:name', function (req, res, next) {
   request(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${req.params.symbol}&apikey=Y2WR3EK2QUQB4YBX`,
     { json: true }, (err, res2, body) => {
