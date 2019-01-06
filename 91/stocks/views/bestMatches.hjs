@@ -1,0 +1,4 @@
+{{#bestMatches}}
+<a href="http://localhost:3000/stocks/{{symbol}}/{{name}}">{{name}} {{symbol}}</a>
+<h2></h2>
+{{/bestMatches}}

@@ -1,0 +1,19 @@
+{{#stock}}
+<h1>{{name}}</h1>
+<h3>{{symble}}</h3>
+Open: {{open}}<br>
+High: {{high}}<br>
+Low: {{low}}<br>
+Price: {{price}}<br>
+Volume: {{volume}}<br>
+Latest Trading Day: {{latestTradingDay}}<br>
+PreviousClose: {{previousClose}}<br>
+Change: {{change}}<br>
+Change Percentange: {{changePercent}}<br>
+{{/stock}}
+{{body}}
+<br>
+<a href="http://localhost:3000/stocks">New Search</a>
+{{!-- <form action="http://localhost:3000/stocks" method="GET">
+    <button>Back</button>
+</form> --}}

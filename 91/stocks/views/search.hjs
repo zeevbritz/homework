@@ -1,0 +1,6 @@
+<form action="" method="POST">
+    <label for="ticker">please enter a stock ticker symble
+        <input type="text" name="ticker" id="ticker">
+    </label>
+    <button>submit</button>
+</form>
