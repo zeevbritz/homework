@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.btn {
+  border: 2px solid buttontext;
+  padding: 5px;
+  background-color: buttonface;
+  color: buttontext;
+}

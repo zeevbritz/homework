@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        label {
+            display: inline-block;
+            width: 40px;
+        }
+
+        #addContactForm {
+            background-color: lightblue;
+            padding: 8px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 224px;
+            margin-left: -112px;
+            margin-top: -70px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        .formGroup {
+            margin-bottom: 4px;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        #search {
+            display: inline-block;
+        }
+        #contactsTable {
+            margin-top: 7px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="addContact">Add Contact</button>
+    <button id="load">Load Contacts</button>
+    <form id="search">
+        <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+        <input type="email" name="email" id="email" placeholder="email@">
+        <input type="text" name="id" id="id" placeholder="Contact id">
+        <button>Search</button>
+    </form>
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4">No contacts loaded</td>
+            </tr>
+        </tbody>
+    </table>
+    <form id="addContactForm">
+        <div class="formGroup">
+            <label for="first">First</label>
+            <input type="text" id="first">
+        </div>
+        <div class="formGroup">
+            <label for="last">Last</label>
+            <input type="text" id="last" required>
+        </div>
+        <div class="formGroup">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+        </div>
+        <div class="formGroup">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone">
+        </div>
+        <div class="buttons">
+            <button>Add</button>
+            <button type="button" id="cancel">Cancel</button>
+        </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascripts/contactsSpa.js"></script>
+</body>
+
+</html>

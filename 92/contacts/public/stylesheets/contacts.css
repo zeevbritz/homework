@@ -1,0 +1,19 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+tr{
+    height: 3em;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+label {
+    display: inline-block;
+    width: 40px;
+}
