@@ -1,39 +1,32 @@
-var debug = require('debug')('contacts:contacts');
 var express = require('express');
 var router = express.Router();
 
 router.route('/')
-    .get((req, res, next) => {
-        if (Object.keys(req.query).length) {
-            let sql = 'SELECT * from contacts ';
-            const existingParams = ['id', 'lastname', 'email'].filter(field => req.query[field]);
-            // if (existingParams.length) {
-            sql += ' WHERE ';
-            sql += existingParams.map(field => `${field} = ?`).join(' AND ');
+    .get((req, res) => {
 
-            db.query(sql, existingParams.map(field => req.query[field]), function (err, results) {
-                if (err) {
-                    return res.status(500).send(err.message);
-                }
-                if (!results.length) {
-                    return res.status(404).send(`No contact with ${existingParams.map(field => `${field} `).join(',')} ${existingParams.map(field => req.query[field])} found.`);
-                }
-                res.send(results);
+        let params = ['id', 'lastname', 'email'];
+        let values = '';
+        let sql = 'SELECT * from contacts ';
+
+        if (Object.keys(req.query).length) {
+            params = params.filter(field => req.query[field]);
+            sql += ' WHERE ';
+            sql += params.map(field => `${field} = ?`).join(' AND ');
+            values = params.map(field => req.query[field]);
+        }
+
+        db.query(sql, values, (err, results) => {
+            if (err) {
+                return res.status(500).send(err.message);
             }
-            );
-            // }
-        }
-        else {
-            db.query('SELECT * FROM contacts', (err, results) => {
-                if (err) {
-                    return res.status(500).send(err.message);
-                }
-                res.send(results);
-            });
-        }
+            if (values.length && !results.length) {
+                return res.status(404).send(`No contact with ${params.map(field => `${field} `).join(',')} ${params.map(field => req.query[field])} found.`);
+            }
+            res.send(results);
+        });
 
     })
-    .post((req, res, next) => {
+    .post((req, res) => {
         db.query(`INSERT INTO contacts(firstname, lastname, phone, email) 
             VALUES(?, ?, ?, ?)`,
             [req.body.firstname, req.body.lastname, req.body.phone, req.body.email],
@@ -56,6 +49,7 @@ router.delete('/:id', (req, res) => {
             return res.status(404).send(`No contact with id ${req.params.id}`);
         }
 
+        // eslint-disable-next-line no-unused-vars
         db.query('DELETE FROM contacts WHERE id=?', [req.params.id], (err, results) => {
             if (err) {
                 return res.status(500).send(err.message);
