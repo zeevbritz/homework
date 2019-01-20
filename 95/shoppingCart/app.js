@@ -57,13 +57,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/addToCart', (req, res, next) => {
+app.post('/addToCart', (req, res) => {
     req.session.cart.addItem(req.body.id, +req.body.count || 1);
     edit = false;
     res.redirect('/');
 });
 
-app.get('/cart', (req, res, next) => {
+app.get('/cart', (req, res) => {
     const items = req.session.cart.getItems();
 
     res.render('layout',
@@ -80,18 +80,18 @@ app.get('/cart', (req, res, next) => {
         });
 });
 
-app.use('/edit', (req, res, next) => {
+app.use('/edit', (req, res) => {
     edit = true;
     res.redirect('/cart');
 });
 
-app.post('/save/:id', (req, res, next) => {
+app.post('/save/:id', (req, res) => {
     req.session.cart.editCount(req.params.id, req.body.count);
     edit = false;
     res.redirect('/cart');
 });
 
-app.get('/remove/:id', (req, res, next) => {
+app.get('/remove/:id', (req, res) => {
     req.session.cart.removeItem(req.params.id);
     res.redirect('/cart');
 });
@@ -102,6 +102,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
+// eslint-disable-next-line no-unused-vars
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
