@@ -35,7 +35,7 @@
             {{#noEdit}}
             <td>
                 {{count}}
-                <button type="submit" class="btn btn-primary mb-0 btn-sm" onclick="window.location.href = '/edit/{{item.id}}'">edit</button>
+                <button type="submit" class="btn btn-primary mb-0 btn-sm" onclick="window.location.href = '/edit'">edit</button>
             </td>
             {{/noEdit}}
             <td>${{item.price}}</td>
