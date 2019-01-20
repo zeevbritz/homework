@@ -1,0 +1,54 @@
+<h2>Your cart contains</h2>
+{{#empty}}
+<h1>NOTHING!</h1>
+<h3><a href="/">Fill it up</a></h3>
+{{/empty}}
+{{#notEmpty}}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>name</td>
+            <td>count</td>
+            <td>unit price</td>
+            <td>subtotal</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#items}}
+        <tr>
+            <td>{{item.name}}</td>
+            {{#edit}}
+            <td>
+                <form method="post" action="/save/{{item.id}}">
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="col-auto">
+                            <input type="number" class="form-control mb-2 form-control-sm" min="1" value={{count}} name="count">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2 btn-sm">save</button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+            {{/edit}}
+            {{#noEdit}}
+            <td>
+                {{count}}
+                <button type="submit" class="btn btn-primary mb-0 btn-sm" onclick="window.location.href = '/edit/{{item.id}}'">edit</button>
+            </td>
+            {{/noEdit}}
+            <td>${{item.price}}</td>
+            <td>${{subtotal}}</td>
+            <td><button type="submit" class="btn btn-danger mb-0 btn-sm" onclick="window.location.href = '/remove/{{item.id}}'">remove</button></td>
+        </tr>
+        {{/items}}
+    </tbody>
+    <tfoot>
+        <td>grand total</td>
+        <td colspan="2"></td>
+        <td>${{grandTotal}}</td>
+        <td></td>
+    </tfoot>
+</table>
+{{/notEmpty}}

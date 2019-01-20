@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+
+    {{#css}}
+    <link rel="stylesheet" href="stylesheets/{{.}}.css" />
+    {{/css}}
+    <title>PCS Store</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>PCS Store</h1>
+            <a href="/">shop</a> | <a href="/cart">cart</a>
+        </header>
+        <hr />
+        {{> content}}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.item img {
+    height: 150px;
+}
+
+.item input[type="number"] {
+    width: 5em;
+}
